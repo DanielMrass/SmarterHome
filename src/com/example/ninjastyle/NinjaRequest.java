@@ -2,8 +2,10 @@ package com.example.ninjastyle;
 
 import java.util.concurrent.ExecutionException;
 
+import com.example.Callbacks.TemperatureCallback;
 import com.example.Tasks.NinjaRGBLEDDataTask;
 import com.example.Tasks.NinjaSetRGBLEDTask;
+import com.example.Tasks.NinjaTempGetDataTask;
 
 import android.app.Activity;
 import android.widget.Toast;
@@ -41,6 +43,21 @@ public class NinjaRequest {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
 			e.printStackTrace();
+		}
+	}
+	
+	public String getRecentNinjaTemperature(){
+		final String url = "https://a.ninja.is/rest/v0/device/1313BB000803_0101_0_31?user_access_token=3e67c92abd7064a289527e161173483958d2b73a";
+		while(true){
+			NinjaTempGetDataTask ntempt = (NinjaTempGetDataTask) new NinjaTempGetDataTask().execute(url);
+			try {
+				String result = ntempt.get();
+				return ntempt.get();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ExecutionException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }

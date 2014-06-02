@@ -4,21 +4,19 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Toast;
 
 public class NinjaRGBLEDDataTask extends AsyncTask<String, Integer, String>{
-
+	
 	@Override
 	protected String doInBackground(String... params) {
 		HttpURLConnection connection;
@@ -50,7 +48,6 @@ public class NinjaRGBLEDDataTask extends AsyncTask<String, Integer, String>{
 			JSONObject obj = new JSONObject(result);
 			JSONObject data = obj.getJSONObject("data");
 			String value = (String) data.get("DA");
-//			String color = obj.getString("DA");
 			connection.disconnect();
 			return value;
 		} catch (MalformedURLException e) {
@@ -69,7 +66,5 @@ public class NinjaRGBLEDDataTask extends AsyncTask<String, Integer, String>{
 	protected void onPostExecute(String result) {
 		super.onPostExecute(result);
 	}
-	
-	
 
 }
