@@ -4,5 +4,8 @@
     <string name="app_name">SmarterHome</string>
     <string name="hello_world">Hallo EEB-Welt!</string>
     <string name="action_settings">Settings</string>
+    <string name="status_heading">The ultimate status screen!</string>
+    <string name="status_rgb_text">RGB LED</string>
+    <string name="status_temp_text">Temperature</string>
 
 </resources>
